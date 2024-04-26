@@ -10,11 +10,11 @@ on:
       ZIP_NAME:
         description: 'ZIP_NAME'
         required: true
-        default: 'xiaomi.zip'
+        default: 'miui.zip'
       OS_TYPE:
         description: 'OS_TYPE'
         required: true
-        default: 'xiaomi'
+        default: 'miui'
       SGSI_TYPE:
         description: 'SGSI_TYPE(AB, A, or BOTH)'
         required: true
