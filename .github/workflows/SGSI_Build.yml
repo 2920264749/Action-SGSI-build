@@ -6,19 +6,19 @@ on:
       ROM_URL:
         description: 'ROM_URL'
         required: true
-        default: 'https://sysupwrdl.vivo.com.cn/upgrade/official/officialFiles/PD2196_A_12.0.11.6.W10.V000L1-update-full_1675336574.zip'
+        default: 'https://xiaomirom.com/download/xiaomi-12-pro-zeus-weekly-V13.0.12.1.1.DEV/#china-recovery'
       ZIP_NAME:
         description: 'ZIP_NAME'
         required: true
-        default: 'vivo_12.0.11.6.W10.V000L1.zip'
+        default: 'xiaomi.zip'
       OS_TYPE:
         description: 'OS_TYPE'
         required: true
-        default: 'vivo'
+        default: 'xiaomi'
       SGSI_TYPE:
         description: 'SGSI_TYPE(AB, A, or BOTH)'
         required: true
-        default: 'AB'
+        default: 'A'
       REPACK_NAME:
         description: 'REPACK_NAME'
         required: true
