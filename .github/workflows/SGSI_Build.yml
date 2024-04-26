@@ -6,11 +6,11 @@ on:
       ROM_URL:
         description: 'ROM_URL'
         required: true
-        default: 'https://bn.d.miui.com/V13.0.12.1.1.DEV/miui_ZEUS_V13.0.12.1.1.DEV_5b2393e286_12.0.zip'
+        default: 'https://hugeota.d.miui.com/21.5.31/miui_TUCANA_21.5.31_cb42ec9bed_11.0.zip'
       ZIP_NAME:
         description: 'ZIP_NAME'
         required: true
-        default: 'miui.V13.0.12.1.1.DEV.zip'
+        default: 'miui_TUCANA_21.5.31_cb42ec9bed_11.0.zip'
       OS_TYPE:
         description: 'OS_TYPE'
         required: true
@@ -76,7 +76,34 @@ jobs:
           sudo bash $GITHUB_WORKSPACE/Tool-SGSI-build/setup.sh
           java -version
 
-      
+      - name: Make AB type GSI‌‌...
+        if: ${{ github.event.inputs.SGSI_TYPE }} == 'AB' || ${{ github.event.inputs.SGSI_TYPE }} == 'BOTH'
+        run: |
+          sudo bash $GITHUB_WORKSPACE/Tool-SGSI-build/make.sh AB << EOF
+          ${{ github.event.inputs.ZIP_NAME }}
+          y
+          y
+          ${{ github.event.inputs.OS_TYPE }}
+          y
+
+      - name: Packing(AB)...
+        if: ${{ github.event.inputs.SGSI_TYPE }} == 'AB' || ${{ github.event.inputs.SGSI_TYPE }} == 'BOTH'
+        run: |
+          cd $GITHUB_WORKSPACE/Tool-SGSI-build
+          pwd
+          zip -r AB_${{ github.event.inputs.REPACK_NAME }} SGSI/*
+          ls "AB_${{ github.event.inputs.REPACK_NAME }}"
+          echo "--------------------------------------"
+          ls
+          echo "--------------------------------------"
+          mkdir upload_ab
+          echo "--------------------------------------"
+          ls upload_ab
+          echo "--------------------------------------"
+          if [ $(ls -l AB_${{ github.event.inputs.REPACK_NAME }} | awk '{print $5}') -gt 2147483647 ]; then tar cvzpf - AB_${{ github.event.inputs.REPACK_NAME }} | split -d -b 1024m - upload_ab/AB_${{ github.event.inputs.REPACK_NAME }}; else mv AB_${{ github.event.inputs.REPACK_NAME }} upload_ab/AB_${{ github.event.inputs.REPACK_NAME }}; fi
+          echo "--------------------------------------"
+          ls upload_ab
+          echo "--------------------------------------"
 
       - name: Make A-only type GSI‌‌...
         if: ${{ github.event.inputs.SGSI_TYPE }} == 'A' || ${{ github.event.inputs.SGSI_TYPE }} == 'BOTH'
