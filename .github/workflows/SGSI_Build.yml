@@ -10,7 +10,7 @@ on:
       ZIP_NAME:
         description: 'ZIP_NAME'
         required: true
-        default: 'miui.zip'
+        default: 'miui.V13.0.12.1.1.DEV.zip'
       OS_TYPE:
         description: 'OS_TYPE'
         required: true
