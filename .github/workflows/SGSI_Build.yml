@@ -10,7 +10,7 @@ on:
       ZIP_NAME:
         description: 'ZIP_NAME'
         required: true
-        default: 'vivo_TUCANA_21.5.31_cb42ec9bed_11.0.zip'
+        default: 'vivo_12.0.11.6.W10.V000L1.zip'
       OS_TYPE:
         description: 'OS_TYPE'
         required: true
