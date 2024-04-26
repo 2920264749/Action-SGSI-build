@@ -6,7 +6,7 @@ on:
       ROM_URL:
         description: 'ROM_URL'
         required: true
-        default: 'https://xiaomirom.com/download/xiaomi-12-pro-zeus-weekly-V13.0.12.1.1.DEV/#china-recovery'
+        default: 'https://bn.d.miui.com/V13.0.12.1.1.DEV/miui_ZEUS_V13.0.12.1.1.DEV_5b2393e286_12.0.zip'
       ZIP_NAME:
         description: 'ZIP_NAME'
         required: true
